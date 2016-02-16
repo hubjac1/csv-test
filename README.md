@@ -30,6 +30,31 @@ You will see output about your tests that looks like this:
 1 error found
 ```
 
+## require
+
+You can use csv-test from a node application using classic require function.
+
+```js
+require('csv-test')(config, stream, validator, callback);
+```
+
+- **config(str):** Configuration in yaml format.
+- **stream(ReadStream):** Data to validate.
+- **customValidator:** Custom validator object.
+- **callback(function):** Function called when job is finished.
+
+An example usage might look like this:
+
+```js
+var config = fs.readFileSync('path/to/config.yml', 'utf8'),
+    stream = fs.createReadStream(path/to/data.csv, 'utf8');
+
+require('csv-test')(config, stream, undefined, function(errors) {
+    // handle list of errors.
+    console.error(errors)
+});
+```
+
 ## configuration
 
 `csv-test` runs by testing your CSV against a configuration file. The configuration file support [yaml](https://en.wikipedia.org/wiki/YAML), which is a human-readable data format. Here is an example configuration file:
