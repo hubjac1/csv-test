@@ -47,7 +47,7 @@ An example usage might look like this:
 
 ```js
 var config = fs.readFileSync('path/to/config.yml', 'utf8'),
-    stream = fs.createReadStream(path/to/data.csv, 'utf8');
+    stream = fs.createReadStream('path/to/data.csv', 'utf8');
 
 require('csv-test')(config, stream, undefined, function(errors) {
     // handle list of errors.
